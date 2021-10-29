@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cay-Chen博客</title>
+<meta name="keywords" content="Cay-Chen个人博客" />
+<meta name="description" content="Cay-Chen个人博客" />
+<link href="/static/css/base.css" rel="stylesheet">
+<link href="/static/css/index.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="/static/js/modernizr.js"></script>
+<![endif]-->
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+</head>
+<body>
+<div class="topnav">
+<a href="/" target="_blank">Cay-Chen个人博客</a>――模板来自<a href="http://www.yangqq.com" target="_blank">杨青个人博客网站</a>
+</div>
+<div id="wrapper">
+  <header>
+    {{template "header"}}
+  </header>
+  <div class="jztop"></div>
+  <div class="container">
+    <div class="bloglist f_l">
+      {{range .contents}}
+      <h3><a href="/view?idtext={{.id}}">{{.title}}</a></h3>
+      <figure><img src="{{.coverimmag}}" alt="{{.title}}"></figure>
+      <ul>
+        <p> {{.abstract}}</p>
+        <a title="{{.title}}" href="/view?idtext={{.id}}" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
+      </ul>
+      <p class="dateview"><span>{{.uptime}}</span><span>作者：</span>{{.author}}<span>个人博客：[<a href="/jstt/bj/">{{.classify}}</a>]</span></p>
+      {{end}}
+    </div>
+    <div class="r_box f_r">
+      <div class="tit01">
+        <h3 class="tit">关注我</h3>
+        <!--<div class="gzwm">
+          <ul>
+            <li><a class="email" href="#" target="_blank">我的电话</a></li>
+            <li><a class="qq" href="#mailto:admin@admin.com" target="_blank">我的邮箱</a></li>
+            <li><a class="tel" href="#" target="_blank">我的QQ</a></li>
+            <li><a class="prize" href="#">个人奖项</a></li>
+          </ul>
+        </div>-->
+        <div style="padding-left: 10px">
+          <ul>
+            <li>博客:<a class="email" href="#" target="_blank">blogchen.top</a></li>
+            <li>邮箱:276495166@qq.com</li>
+            <li> Q Q:276495166</li>
+            <li>微信:cay111</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ph">
+        <h3 class="tit">文章分类</h3>
+        <ul class="rank">
+          <li><a href="/listpic?classify=101">慢生活 <span>({{.classify.man}})</span></a></li>
+          <li><a href="/listpic?classify=102&page=1">Android <span>({{.classify.android}})</span></a></li>
+          <li><a href="/listpic?classify=106&page=1">JAVA <span>({{.classify.java}})</span></a></li>
+          <li><a href="/listpic?classify=103&page=1">Golang <span>({{.classify.golang}})</span></a></li>
+          <li><a href="/listpic?classify=104&page=1">PHP <span>({{.classify.php}})</span></a></li>
+          <li><a href="/listpic?classify=105&page=1">MySql <span>({{.classify.mysql}})</span></a></li>
+          <li><a href="/listpic?classify=108&page=1">JavaScrip<span>({{.classify.js}})</span></a></li>
+          <li><a href="/listpic?classify=109&page=1">jQuery <span>({{.classify.jq}})</span></a></li>
+          <li><a href="/listpic?classify=107&page=1">HTML/CSS <span>({{.classify.html}})</span></a></li>
+        </ul>
+      </div>
+      <div class="ad"> <img src="/static/img/03.jpg"> </div>
+    </div>
+  </div>
+  <!-- container代码 结束 -->
+  <div class="jzend"></div>
+  <footer>
+  {{template "footer"}}
+  </footer>
+</div>
+</body>
+</html>

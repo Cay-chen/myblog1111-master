@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cay-Chen个人博客</title>
+  <meta name="keywords" content="Cay-Chen个人博客" />
+  <meta name="description" content="Cay-Chen个人博客" />
+<link href="/static/css/base.css" rel="stylesheet">
+<link href="/static/css/main.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="/static/js/modernizr.js"></script>
+<![endif]-->
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+</head>
+<body>
+<div id="wrapper">
+<header>
+  {{template "header"}}
+</header>
+  <div class="jztop"></div>
+  <div class="container">
+  <div class="con_content">
+    <div class="about_box">
+      <h2 class="nh1"><span>您现在的位置是：<a href="/" target="_blank">网站首页</a>>><a href="#" target="_blank">个人日记</a></span><b>个人日记</b></h2>
+      <div class="dtxw box">
+        {{range .contents}}
+        <li>
+          <div class="dttext f_l">
+            <ul>
+              <h2><a href="/view?idtext={{.id}}">{{.title}}</a></h2>
+              <p>{{.abstract}}</p>
+              <span>{{.uptime}}</span>
+            </ul>
+          </div>
+          <div class="xwpic f_r"><a href="/view?idtext={{.id}}"><img src="{{.coverimmag}}"></a></div>
+        </li>
+
+        {{end}}
+      </div>
+      <div class="pagelist">页次：{{.now_page}}/{{.total_page}} 每页6 总数{{.total_count}} {{.up_down}}</div>
+    </div>
+  </div>
+  <div class="blank"></div>
+  <!-- container代码 结束 -->
+  
+  <footer>
+    {{template "footer"}}
+  </footer>
+</div>
+</div>
+</body>
+</html>
